@@ -16,3 +16,24 @@
 
 4.  consumer 
   .\bin\windows\kafka-console-consumer.bat --topic myTopic --from-beginning --bootstrap-server localhost:9092
+  
+  
+### application.yaml
+spring:
+  kafka:
+    consumer:
+      bootstrap-servers:
+      - localhost:9092
+      group-id: myGroup
+      auto-offset-reset: earliest
+      key-deserializer:
+        org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer:
+        org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      bootstrap-servers:
+      - localhost:9092
+      key-serializer:
+        org.apache.kafka.common.serialization.StringSerializer
+      value-serializer:
+        org.apache.kafka.common.serialization.StringSerializer
